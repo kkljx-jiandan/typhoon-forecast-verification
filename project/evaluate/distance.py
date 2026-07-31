@@ -5,20 +5,20 @@ import matplotlib.pyplot as plt
 df_fw = pd.read_excel('/home/mw/project/风乌.xlsx')
 df_fx =pd.read_excel('/home/mw/project/伏羲.xlsx')
 df_pg = pd.read_excel('/home/mw/project/盘古.xlsx')
-df_gc = pd.read_excel('/home/mw/input/abc8438/202305_new.xls')
-# 提取观测的台风杜苏芮海平面最低气压、经纬度数据
+df_gc = pd.read_excel('/home/mw/input/202606.xls')
+# 提取观测的台风巴威海平面最低气压、经纬度数据
 
 
 lat_gc= df_gc['lat']
 lon_gc= df_gc['lon']
 
-# 提取风乌大模型预报的台风杜苏芮海平面最低气压、经纬度数据
+# 提取风乌大模型预报的台风海平面最低气压、经纬度数据
 lat_fw = df_fw['lat']
 lon_fw = df_fw['lon']
 
 
 
-# 提取伏羲大模型预报的台风杜苏芮海平面最低气压、经纬度数据
+# 提取伏羲大模型预报的台风海平面最低气压、经纬度数据
 
 
 lat_fx= df_fx['lat']
@@ -26,7 +26,7 @@ lon_fx= df_fx['lon']
 
 
 
-# 提取盘古大模型预报的台风杜苏芮海平面最低气压、经纬度数据
+# 提取盘古大模型预报的台风海平面最低气压、经纬度数据
 
 
 lat_pg= df_pg['lat']
@@ -34,7 +34,7 @@ lon_pg= df_pg['lon']
 
 
 
-# 计算风乌大模型预报的台风杜苏芮路径偏差
+# 计算风乌大模型预报的台风路径偏差
 fw_wucha = []
 
 
@@ -48,7 +48,7 @@ for latfw, lonfw, latgc,longc in zip(lat_fw, lon_fw, lat_gc,lon_gc):
 
 fw_wucha
 
-# 计算盘古大模型预报的台风杜苏芮路径偏差
+# 计算盘古大模型预报的台风路径偏差
 
 pg_wucha = []
 
@@ -62,7 +62,7 @@ for latpg, lonpg, latgc,longc in zip(lat_pg, lon_pg, lat_gc,lon_gc):
      pg_wucha.append(pg_juli)
 
 pg_wucha
-# 计算伏羲大模型预报的台风杜苏芮路径偏差
+# 计算伏羲大模型预报的台风路径偏差
 fx_wucha = []
 
 
