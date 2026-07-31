@@ -4,15 +4,15 @@ from forecast_decode_functions import surface, upper
 
 # The date and time of the initial field
 date_time = datetime(
-    year=2023, 
+    year=2026, 
     month=7, 
-    day=23,
+    day=06,
     hour=6,
     minute=0)
 date_time_final = datetime(
     year=2023,
     month=7,
-    day=31,
+    day=20,
     hour=6,
     minute=0)
  
