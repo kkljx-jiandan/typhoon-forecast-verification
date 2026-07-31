@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 # 创建空数组，维度为(4, 721, 1440)
 surface_data = np.zeros((4, 721, 1440), dtype=np.float32)
 # 打开nc数据，并依次写入msl、u10、v10、t2m变量
-with nc.Dataset('/home/mw/input/meteo4553/ERA5/2D/era5_2D_2023072306.nc') as nc_file:
+with nc.Dataset('/home/mw/input/meteo4553/ERA5/2D/era5_2D_2026070606.nc') as nc_file:
     surface_data[0] = nc_file.variables['msl'][:].astype(np.float32)
     surface_data[1] = nc_file.variables['u10'][:].astype(np.float32)
     surface_data[2] = nc_file.variables['v10'][:].astype(np.float32)
@@ -22,7 +22,7 @@ np.save('/home/mw/temp/input_surface.npy', surface_data)
 # 创建空数组，维度为(5, 13, 721, 1440)
 upper_data = np.zeros((5, 13, 721, 1440), dtype=np.float32)
 # 打开nc数据，并依次写入z、q、t、u和v变量
-with nc.Dataset('/home/mw/input/meteo4553/ERA5/3D/era5_3D_2023072306.nc') as nc_file:
+with nc.Dataset('/home/mw/input/meteo4553/ERA5/3D/era5_3D_2026070606.nc') as nc_file:
     upper_data[0] = (nc_file.variables['z'][:]).astype(np.float32)
     upper_data[1] = nc_file.variables['q'][:].astype(np.float32)
     upper_data[2] = nc_file.variables['t'][:].astype(np.float32)
