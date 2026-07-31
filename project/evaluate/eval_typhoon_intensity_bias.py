@@ -4,21 +4,21 @@ import matplotlib.pyplot as plt
 df_fw = pd.read_excel('/home/mw/project/风乌.xlsx')
 df_fx =pd.read_excel('/home/mw/project/伏羲.xlsx')
 df_pg = pd.read_excel('/home/mw/project/盘古.xlsx')
-df_gc = pd.read_excel('/home/mw/input/abc8438/202305_new.xls')
+df_gc = pd.read_excel('/home/mw/input/202606.xls')
 
 gc_hpa = df_gc['pressure']
-# 计算风乌大模型预报的台风杜苏芮强度偏差
+# 计算风乌大模型预报的台风强度偏差
 fw_hpa = df_fw['slp_min']
 fw_hpa_wc = fw_hpa-gc_hpa
 #fw_hpa_wc
 
 time_wc = df_fw['time']
 
-# 计算盘古大模型预报的台风杜苏芮强度偏差
+# 计算盘古大模型预报的台风强度偏差
 pg_hpa = df_pg['slp_min']
 pg_hpa_wc = pg_hpa-gc_hpa
 
-# 计算伏羲大模型预报的台风杜苏芮强度偏差
+# 计算伏羲大模型预报的台风强度偏差
 fx_hpa = df_fx['slp_min']
 fx_hpa_wc = fx_hpa-gc_hpa
 
