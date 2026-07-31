@@ -49,7 +49,7 @@ print(input_data.shape)
 '''
 
 # 地面层
-data = nc.Dataset('/home/mw/input/meteo4553/ERA5/2D/era5_2D_2023072306.nc')
+data = nc.Dataset('/home/mw/input/meteo4553/ERA5/2D/era5_2D_2026070606.nc')
 
 # 提取nc数据中的变量
 u10 = data.variables['u10']
@@ -58,7 +58,7 @@ t2m = data.variables['t2m']
 msl = data.variables['msl']
 
 # 高空层
-data = nc.Dataset('/home/mw/input/meteo4553/ERA5/3D/era5_3D_2023072306.nc')
+data = nc.Dataset('/home/mw/input/meteo4553/ERA5/3D/era5_3D_2026070606.nc')
 
 # 提取nc数据中的变量
 z = data.variables['z'][:,::-1,:,:][0]
