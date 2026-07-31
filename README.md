@@ -89,7 +89,7 @@ pip install cdsapi numpy netCDF4 onnxruntime xarray matplotlib pandas
 
 ### 1.3 ERA5数据下载
 1. 配置CDS认证文件
-在服务器家目录创建 `~/.cdsapirc`
+在服务器/home目录创建 `~/.cdsapirc`
 ```
 url: https://cds.climate.copernicus.eu/api/v2
 key: <你的CDS TOKEN>
@@ -118,7 +118,7 @@ ERA5原始数据默认下载目录：
 - 伏羲预报结果：`/home/mw/input/evaluate7266/fuxi/`
 - 风乌预报结果：`/home/mw/input/evaluate7266/fengwu/`
 
-### 2.1 伏羲 FuXi 运行方式
+### 2.1 伏羲 推理计算
 ```bash
 # 1. ERA5原始NetCDF转为伏羲输入格式
 cd Fuxi
@@ -137,13 +137,13 @@ python fuxi.py \
 --num_steps 20 20 20
 ```
 
-### 2.2 盘古 Pangu-Weather 运行方式
+### 2.2 盘古 推理计算
 模型权重路径
 ```
 model_24 = '/home/mw/input/pangu5747/pangu_weather_24.onnx' # 24h预报
 model_6  = '/home/mw/input/pangu5747/pangu_weather_6.onnx'  # 6h预报
-model_3  = '/home/mw/input/pangu5747/pangu_weather_3.onnx'  # 3h预报
-model_1  = '/home/mw/input/pangu5747/pangu_weather_1.onnx'  # 1h预报
+model_3  = '/home/mw/input/pangu5747/pangu_weather_3.onnx'  # 3h预报（不必要）
+model_1  = '/home/mw/input/pangu5747/pangu_weather_1.onnx'  # 1h预报（不必要）
 ```
 
 执行流程
@@ -162,7 +162,7 @@ python forecast_decode.py
 ```
 推理输出npy文件存储至中间目录，解码后的nc文件汇总输出到盘古结果目录。
 
-### 2.3 风乌 Fengwu 运行方式
+### 2.3 风乌 推理计算
 ```bash
 cd Fengwu
 # 1. 构造模型输入数据，TEMP目录生成 fengwu_input1.npy、fengwu_input2.npy
@@ -192,8 +192,3 @@ python evaluate.py
 # 4. 台风强度误差定量评估（最大风速、中心气压偏差、RMSE、MAE）
 python eval_typhoon_intensity_bias.py
 ```
-
-
-## 注意事项
-1. CDS API密钥、服务器路径信息请勿直接提交至代码仓库；
-2. 模型权重、原始ERA5数据、生成的npy/nc文件体积巨大，不上传Git；
